@@ -48,20 +48,24 @@ async def get_title(message: types.message, state: FSMContext):
 #     if message.text.isdigit():
 #         url = f'https://www.wildberries.ru/catalog/{message.text}/detail.aspx'
 #         response = requests.get(url)
+#         if response.status_code == 404:
+#             await bot.send_message(message.chat.id, 'что то пошло не так')
 #         soup = BeautifulSoup(response.text, 'html.parser')
 #         if field_to_retrieve == TITLE:
 #             title = soup.find('div', class_='collapsable__content j-description').find('p').text
 #             if title:
 #                 await bot.send_message(message.chat.id, title)
-#             await bot.send_message(message.chat.id, 'описание не найдено')
+#             else:
+#                 await bot.send_message(message.chat.id, 'описание не найдено')
 #         elif field_to_retrieve == BRAND:
 #             brand = soup.find('div', class_='same-part-kt__header-wrap hide-mobile').find('span').text
 #             await bot.send_message(message.chat.id, brand)
 #     else:
 #         await bot.send_message(message.chat.id, 'введите корректный артикул')
-#
+
 
 # получить информацию HTTP запросом который присылает данные в json
+
 @dp.message_handler(content_types=['text'])
 async def parser(message: types.message, state: FSMContext):
     async with state.proxy() as data:
