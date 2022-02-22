@@ -75,7 +75,6 @@ async def parser(message: types.message, state: FSMContext):
             else:
                 await bot.send_message(message.chat.id, 'описание не найдено')
         elif field_to_retrieve == BRAND:
-            response = (requests.get(url)).json()
             await bot.send_message(message.chat.id, response['selling']['brand_name'])
     else:
         await bot.send_message(message.chat.id, 'введите корректный артикул')
