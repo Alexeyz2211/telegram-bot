@@ -22,8 +22,8 @@ async def get_brand(message: types.message, state: FSMContext):
     async with state.proxy() as data:
         data['field_to_retrieve'] = BRAND
     await bot.send_message(message.chat.id, """
-    Я помогаю искать Бренды товаров по артикулям на сайте <b><a href='https://www.wildberries.ru/'>Wildberries</a></b> 
-, для получения информации отправте артикул.""",
+    Я помогаю искать Бренды товаров по артикулам на сайте 
+<b><a href='https://www.wildberries.ru/'>Wildberries</a></b>, для получения информации отправте артикул.""",
                            parse_mode='html',
                            disable_web_page_preview=1)
 
@@ -33,8 +33,8 @@ async def get_title(message: types.message, state: FSMContext):
     async with state.proxy() as data:
         data['field_to_retrieve'] = TITLE
     await bot.send_message(message.chat.id, """
-    Я помогаю искать Названия товаров по артикулям на сайте <b><a href='https://www.wildberries.ru/'>Wildberries</a></b> 
-, для получения информации отправте артикул.""",
+    Я помогаю искать Названия товаров по артикулам на сайте
+<b><a href='https://www.wildberries.ru/'>Wildberries</a></b>, для получения информации отправте артикул.""",
                            parse_mode='html',
                            disable_web_page_preview=1)
 
