@@ -1,1 +1,7 @@
-TOKEN = '5145518324:AAG1ouEUC2Ve102aeeKsD0TunDcCVEv0Xv8'
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv('TELEGRAM_TOKEN')
